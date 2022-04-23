@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for asset in assets %}
+        {{ asset.asset_name}} 
+        {{ asset.timestamp }}
+        <br>
+    {% endfor %}
+{% endblock %}
