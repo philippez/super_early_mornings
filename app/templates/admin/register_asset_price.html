@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Register a new asset price</h1>
+    <div class="container">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class = "form-group">
+            <p>
+                {{ form.date.label }}<br>
+                {{ form.date() }}<br>
+            </p>
+            <p>
+                {{ form.asset.label }}<br>
+                {{ form.asset() }}<br>
+            </p>
+            <p>
+                {{ form.price.label }}<br>
+                {{ form.price(cols=48, rows=10) }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

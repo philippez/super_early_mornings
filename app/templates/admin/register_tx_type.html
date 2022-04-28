@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Register a new Transaction Type</h1>
+    <div class="container">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class = "form-group">
+            <p>
+                {{ form.tx_type_name.label }}<br>
+                {{ form.tx_type_name(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.tx_type_name.label }}<br>
+                {{ form.tx_type_desc(cols=48, rows=10) }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+        </div>
+        </form>
+    </div>
+{% endblock %}

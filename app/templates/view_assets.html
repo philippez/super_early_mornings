@@ -1,9 +1,26 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% for asset in assets %}
-        {{ asset.asset_name}} 
-        {{ asset.timestamp }}
+    
+
+        <table>
+            <th style="text-align: left">Name</th>
+            <th style="text-align: left">Description</th>
+            <th style="text-align: left">Currency</th>
+            <th style="text-align: left">Region</th>
+            <th style="text-align: left">Type</th>
+            <th style="text-align: left">Timestamp</th>
+            {% for asset in assets %}
+            <tr>
+                <td style="text-align: left">{{ asset.asset_name}}</td>
+                <td style="text-align: left">{{ asset.asset_desc}}</td>
+                <td style="text-align: left">{{ asset.asset_currency}}</td>
+                <td style="text-align: left">{{ asset.asset_region}}</td>
+                <td style="text-align: left">{{ asset.asset_type}}</td>
+                <td style="text-align: left">{{ asset.timestamp }}</td>
+            </tr>
+            {% endfor %}
+        </table>
         <br>
-    {% endfor %}
+    
 {% endblock %}

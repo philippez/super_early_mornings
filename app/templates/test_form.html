@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Hi, {{ current_user.username }}!</h1>
+    {% if form %}
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.field_x.label }}<br>
+            {{ form.field_x(cols=32, rows=4) }}<br>
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    {% endif %}
+
+{% endblock %}

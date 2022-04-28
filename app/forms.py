@@ -1,5 +1,5 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, TextAreaField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, TextAreaField, SubmitField, SelectField, DateField, IntegerField
 from wtforms.validators import ValidationError, DataRequired, Email, EqualTo, Length
 from app.models import User
 
@@ -35,11 +35,59 @@ class EditProfileForm(FlaskForm):
 class RegisterAssetForm(FlaskForm):
     asset_name = StringField('Asset_Name', validators=[DataRequired()])
     asset_desc = TextAreaField('Asset_Desc', validators=[Length(min=0, max=140)])
+    asset_currency = StringField('Asset_Currency', validators=[DataRequired()])
     asset_region = StringField('Asset_Region', validators=[DataRequired()])
     asset_type = StringField('Asset_Type', validators=[DataRequired()])
-    super_theme = StringField('Super_Theme', validators=[DataRequired()])
+    super_theme = SelectField('Super_Theme', coerce=int, validators=[DataRequired()])
     micro_theme = StringField('Micro_Theme', validators=[DataRequired()])
     bloomberg_ticker = StringField('BB_Ticker', validators=[DataRequired()])
     sec_ref = StringField('Sec_Ref', validators=[DataRequired()])
-    asset_opinion = StringField('Asset_Opinion', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class RegisterSuperThemeForm(FlaskForm):
+    super_theme_name = StringField('Super Theme Name', validators=[DataRequired()])
+    super_theme_desc = TextAreaField('Super Theme Description', validators=[Length(min=0, max=500)])
+    submit = SubmitField('Submit')
+
+class RegisterTxTypeForm(FlaskForm):
+    tx_type_name = StringField('Tx Type Name', validators=[DataRequired()])
+    tx_type_desc = TextAreaField('Tx Type Description', validators=[Length(min=0, max=500)])
+    submit = SubmitField('Submit')
+
+class RegisterTransactionForm(FlaskForm):
+    transaction_date = DateField('Transaction Date', validators=[DataRequired()])
+    transaction_type = SelectField('Transaction Type', coerce=int, validators=[DataRequired()])
+    transaction_qty = IntegerField('Quantity', validators=[DataRequired()])
+    transaction_price = IntegerField('Price', validators=[DataRequired()])
+    transaction_asset = SelectField('Asset', coerce=int, validators=[DataRequired()])
+    transaction_platform = SelectField('Platform', coerce=int, validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+class RegisterPlatformForm(FlaskForm):
+    platform_name = StringField('Platform Name', validators=[DataRequired()])
+    platform_desc = TextAreaField('Platform Description', validators=[Length(min=0, max=500)])
+    submit = SubmitField('Submit')
+
+class AssetPriceForm(FlaskForm):
+    date = DateField('Date', validators=[DataRequired()])
+    asset = SelectField('Asset', coerce=int, validators=[DataRequired()])
+    price = IntegerField('Price', validators=[DataRequired()])
+    submit = SubmitField('Submit')
+
+
+
+class PostForm(FlaskForm):
+    post = TextAreaField('Say something', validators=[
+        DataRequired(), Length(min=1, max=140)])
+    submit = SubmitField('Submit')
+
+class EmptyForm(FlaskForm):
+    submit = SubmitField('Submit')
+
+
+class TestForm(FlaskForm):
+    a = [1,2,3,4]
+    for i in range(5):
+        field_x = SelectField('Number', choices = a)
+        i =+ 1
     submit = SubmitField('Submit')

@@ -2,7 +2,7 @@
 <html>
     <head>
         {% if title %}
-        <title>{{ title }} - microblog</title>
+        <title>{{ title }} - Super early mornings</title>
         {% else %}
         <title>Super early mornings</title>
         {% endif %}
@@ -10,14 +10,22 @@
     <body>
         <div>
             Super Early Mornings:
-            <a href="{{ url_for('index') }}">Home</a>
-            <a href="{{ url_for('register_asset')}}">Create Asset</a>
-            <a href="{{ url_for('view_assets')}}">View Assets</a>
+            <a href="{{ url_for('index') }}">Home</a><br>
+            <a href="{{ url_for('explore') }}">Explore</a><br>
+            <a href="{{ url_for('view_assets')}}">View Assets</a><br>
+            <a href="{{ url_for('view_super_themes')}}">View Super Themes</a><br>
+            <a href="{{ url_for('view_transactions')}}">View Transactions</a><br>
+            <a href="{{ url_for('view_manual_prices')}}">View Manual Prices</a><br>
+            <a href="{{ url_for('portfolio_performance')}}">Portfolio Perf</a><br>
             {% if current_user.is_anonymous %}
             <a href="{{ url_for('login') }}">Login</a>
             {% else %}
-            <a href="{{ url_for('user', username=current_user.username) }}">Profile</a>
+            <a href="{{ url_for('user', username=current_user.username) }}">Profile</a><br>
             <a href="{{ url_for('logout') }}">Logout</a>
+            {% endif %}
+            <br>
+            {% if current_user.username == 'Phil' %}
+            <a href="{{ url_for('admin')}}">Admin</a>
             {% endif %}
         </div>
         <hr>

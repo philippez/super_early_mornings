@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Register a new Transaction</h1>
+    <div class="container">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class = "form-group">
+            <p>
+                {{ form.transaction_date.label }}<br>
+                {{ form.transaction_date(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.transaction_platform.label }}<br>
+                {{ form.transaction_platform(cols=48, rows=10) }}<br>
+            </p>
+            <p>
+                {{ form.transaction_asset.label }}<br>
+                {{ form.transaction_asset(cols=48, rows=10) }}<br>
+            </p>
+            <p>
+                {{ form.transaction_type.label }}<br>
+                {{ form.transaction_type() }}<br>
+            </p>
+            <p>
+                {{ form.transaction_qty.label }}<br>
+                {{ form.transaction_qty(cols=48, rows=10) }}<br>
+            </p>
+            <p>
+                {{ form.transaction_price.label }}<br>
+                {{ form.transaction_price(cols=48, rows=10) }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+        </div>
+        </form>
+    </div>
+{% endblock %}

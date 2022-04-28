@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Register a new asset</h1>
+    <div class="container">
+        <form action="" method="post">
+            {{ form.hidden_tag() }}
+            <div class = "form-group">
+            <p>
+                {{ form.asset_name.label }}<br>
+                {{ form.asset_name(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.asset_desc.label }}<br>
+                {{ form.asset_desc(cols=48, rows=10) }}<br>
+            </p>
+            <p>
+                {{ form.asset_currency.label }}<br>
+                {{ form.asset_currency(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.asset_region.label }}<br>
+                {{ form.asset_region(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.asset_type.label }}<br>
+                {{ form.asset_type(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.super_theme.label }}<br>
+                {{ form.super_theme() }}<br>
+            </p>
+            <p>
+                {{ form.micro_theme.label }}<br>
+                {{ form.micro_theme(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.bloomberg_ticker.label }}<br>
+                {{ form.bloomberg_ticker(size=32) }}<br>
+            </p>
+            <p>
+                {{ form.sec_ref.label }}<br>
+                {{ form.sec_ref(size=32) }}<br>
+            </p>
+            <p>{{ form.submit() }}</p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

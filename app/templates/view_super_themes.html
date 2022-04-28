@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for super_theme in super_themes %}
+        {{ super_theme.super_theme_name}} 
+        {{ super_theme.timestamp }}
+        <br>
+    {% endfor %}
+{% endblock %}

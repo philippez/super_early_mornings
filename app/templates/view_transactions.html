@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+    
+
+        <table>
+            <th style="text-align: left">Date</th>
+            <th style="text-align: left">Platform</th>
+            <th style="text-align: left">Asset</th>
+            <th style="text-align: left">Type</th>
+            <th style="text-align: left">Quantity</th>
+            <th style="text-align: left">Price</th>
+            {% for transaction, platform, asset in res %}
+            <tr>
+                <td style="text-align: left">{{ transaction.date}}</td>
+                <td style="text-align: left">{{ platform.platform_name}}</td>
+                <td style="text-align: left">{{ asset.asset_name}}</td>
+                <td style="text-align: left">{{ transaction.type}}</td>
+                <td style="text-align: left">{{ transaction.qty }}</td>
+                <td style="text-align: left">{{ transaction.price }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br>
+    
+{% endblock %}
